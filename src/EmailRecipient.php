@@ -7,7 +7,7 @@ namespace TransactionalMail;
  */
 class EmailRecipient
 {
-    private string $name;
+    private string|null $name;
     private string $email;
 
     /**
