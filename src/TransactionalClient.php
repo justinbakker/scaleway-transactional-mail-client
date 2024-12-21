@@ -111,7 +111,7 @@ class TransactionalClient
         if(empty($email->getFromRecipient())) throw new \Exception("From recipient required.");
         if(count($email->getToRecipients()) == 0) throw new \Exception("To recipient required.");
         if(empty($email->getSubject())) throw new \Exception("Subject required.");
-        if(empty($email->getText()) && $email->getHtml()) throw new \Exception("Text required.");
+        if(empty($email->getText()) && empty($email->getHtml())) throw new \Exception("Text required.");
         if(empty($email->getProjectId())) throw new \Exception("Project id required.");
 
         $json = json_encode($email);
