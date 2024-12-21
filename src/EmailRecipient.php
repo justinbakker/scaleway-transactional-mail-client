@@ -5,7 +5,7 @@ namespace TransactionalMail;
 /**
  * Class EmailReciepent
  */
-class EmailRecipient
+class EmailRecipient implements \JsonSerializable
 {
     private string|null $name;
     private string $email;
@@ -87,5 +87,15 @@ class EmailRecipient
         } else {
             return $this->email;
         }
+    }
+
+    /**
+     * Returns the associative array representation of the object for JSON serialization.
+     *
+     * @return mixed An associative array containing the object's properties as key-value pairs.
+     */
+    public function jsonSerialize(): mixed
+    {
+        return get_object_vars($this);
     }
 }

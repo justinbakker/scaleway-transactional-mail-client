@@ -149,7 +149,6 @@ class TransactionalClient
         $error->message = $error;
         $error->errno = $errno;
         $error->detail = $response;
-        $error->body = $email;
 
         return $error;
     }
