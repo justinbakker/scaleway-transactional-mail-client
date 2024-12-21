@@ -105,7 +105,7 @@ class TransactionalClient
      * @throws \Exception If required email elements are missing in the provided TransactionalEmail object.
      * @throws \RuntimeException If there is an error during the email sending process.
      */
-    public function send(TransactionalEmail $email): TransactionalResult|bool
+    public function send(TransactionalEmail $email): TransactionalResult|\stdClass
     {
 
         if(empty($email->getFromRecipient())) throw new \Exception("From recipient required.");
@@ -144,6 +144,12 @@ class TransactionalClient
             return TransactionalResult::fromObject(json_decode($response, false));
         }
 
-        return false;
+        $error = new \stdClass();
+        $error->code = $status;
+        $error->message = $error;
+        $error->errno = $errno;
+        $error->detail = $response;
+
+        return $error;
     }
 }
