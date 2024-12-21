@@ -1,4 +1,6 @@
 {
+  "name": "justinbakker/scaleway-transactional-mail-client",
+  "version": "1.0",
   "require": {
     "ext-fileinfo": "*",
     "ext-curl": "*"
