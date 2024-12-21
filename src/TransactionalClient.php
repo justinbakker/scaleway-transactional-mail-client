@@ -121,7 +121,7 @@ class TransactionalClient
         \curl_setopt($ch, \CURLOPT_RETURNTRANSFER, true);
         \curl_setopt($ch, \CURLOPT_CUSTOMREQUEST, "POST");
         \curl_setopt($ch, \CURLOPT_HTTPHEADER, [
-            'X-Api-Token: ' . $this->access_secret,
+            'X-Auth-Token: ' . $this->access_secret,
             'Content-Type: application/json',
             'Content-Length: ' . strlen($json)
         ]);
